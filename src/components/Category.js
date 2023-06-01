@@ -9,18 +9,18 @@ const Category = () => {
   const articles = useSelector(selectArticles);
 
   const { name } = useParams();
-
+  console.log(name)
   return (
-    <main>
+    <div>
       <h2>Articles Related to {name}</h2>
       <ul>
-        {categories[name].map((articleSlug) => (
+        { categories[name].map(articleSlug => (
           <li>
-            <Link to={`/articles/${articleSlug}`}>{articles[articleSlug]}</Link>
+            <Link to={`/articles/${articleSlug}`}>{articles[articleSlug].title}</Link>
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 };
 
