@@ -4,16 +4,16 @@ import { selectAuthors } from '../features/authors/authorsSlice';
 import { Link } from 'react-router-dom';
 
 // Import useParams from React Router
+import { useParams } from 'react-router-dom';
 
 const Author = () => {
-  // Extract the `name` URL parameter.
-
   const authors = useSelector(selectAuthors);
-  const author = authors['replace me'];
+  const { name } = useParams();
+  const author = authors[name];
 
   return (
     <main>
-      <h1>Articles by REPLACE ME</h1>
+      <h1>Articles by {name}</h1>
       <ul>
         {author && author.articles ? (
           author.articles.map((slug) => (
