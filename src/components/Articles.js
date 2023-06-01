@@ -7,6 +7,7 @@ import {
 import Search from './Search';
 
 // Import Link and useSearchParams from React Router
+import { Link } from 'react-router-dom';
 
 const Articles = () => {
   const articles = useSelector(selectArticles);
@@ -26,8 +27,7 @@ const Articles = () => {
       <ul>
         {filteredArticles.map((article) => (
           <li key={article.slug}>
-            {/* Replace these a tags! */}
-            <a href={`${article.slug}`}>{article.title}</a>
+            <Link to={`${article.slug}`}>{article.title}</Link>
           </li>
         ))}
       </ul>
